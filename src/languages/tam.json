@@ -1,0 +1,23 @@
+{
+    "headerContent": "VIP's Garage",
+    "userRegisterHead": "பயனர் பதிவு பக்கம்",
+    "userLoginHead": "பயனர் உள்நுழைவு பக்கம்",
+    "adminRegisterHead": "நிர்வாக பதிவு பக்கம்",
+    "adminLoginHead": "நிர்வாக உள்நுழைவு பக்கம்",
+    "userNameLabel": "பயனர் பெயர்",
+    "mobileLabel": "கைபேசி எண் :",
+    "passwordLabel": "கடவுச்சொல் :",
+    "addressLabel": "முகவரி :",
+    "loginBtn": "உள்நுழைய",
+    "registerBtn": "பதிவிட",
+    "forgotBtn": "கடவுச்சொல்லை மறந்துவிட்டீர்களா ?",
+    "developerContact": "டெவலப்பரை தொடர்புகொள்ள",
+    "menu": "பட்டியல்",
+    "translate": "மொழிபெயர்க்க",
+    "shopping": "பொருட்கள் வாங்குதல்",
+    "grocery": "மளிகை",
+    "medical": "மருத்துவம்",
+    "vehicle": "வாகனம்",
+    "jewel": "நகை",
+    "spare": "உதிரிபாகங்கள்"
+}
