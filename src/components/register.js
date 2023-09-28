@@ -98,15 +98,14 @@ const Register = (props) => {
     }
 
     return (
-        <div className='container margin-above'>
+        <div className='container my-5'>
             <div className='row'>
                 <div className='col-lg-6 col-md-8 container'>
                     <div className='rounded register-parent'>
                         <div className='text-center register-head py-4'>
                             {translate('userRegisterHead', lang)}
                         </div>
-
-                        <div className='mt-2 mt-lg-0 p-md-5 p-3 pt-4'>
+                        <div className='p-md-4 p-3'>
                             <Form className='register-form'>
                                 <FormGroup className='mb-4'>
                                     <FormLabel className='input-label' htmlFor='userName'>{translate('userNameLabel', lang)}</FormLabel>
@@ -130,7 +129,7 @@ const Register = (props) => {
                                 </FormGroup>
                                 <FormGroup className='mb-4'>
                                     <FormLabel className='input-label' htmlFor='password'>{translate('passwordLabel', lang)}</FormLabel>
-                                    <FormControl className='mt-1 input-text' id='password' name='password' type='text' value={registerDetails.password} onChange={(e) => handleChange(e)} maxLength={8}/>
+                                    <FormControl className='mt-1 input-text' id='password' name='password' type='text' value={registerDetails.password} onChange={(e) => handleChange(e)} maxLength={8} />
                                     {/* <Link to={'/forgot-password'}></Link> */}
                                 </FormGroup>
                                 <FormGroup className='mb-4'>
@@ -139,8 +138,8 @@ const Register = (props) => {
                                     {/* <Link to={'/forgot-password'}></Link> */}
                                 </FormGroup>
                                 <FormGroup className='d-flex justify-content-between mt-5'>
-                                    <Button className='btn-common rounded px-lg-4 px-3' onClick={() => navigate('/')}>{translate('loginBtn', lang)}</Button>
-                                    <Button className='btn-common rounded px-lg-4 px-3' disabled={registerLoader} onClick={(e) => handleSubmit(e)}>{!registerLoader ? translate('registerBtn', lang) : <Loader size={'small'} />}</Button>
+                                    <Button className='btn-common rounded px-sm-5 px-3' onClick={() => navigate('/')}>{translate('loginBtn', lang)}</Button>
+                                    <Button className='btn-common rounded px-sm-5 px-3' disabled={registerLoader} onClick={(e) => handleSubmit(e)}>{!registerLoader ? translate('registerBtn', lang) : <Loader size={'small'} />}</Button>
                                 </FormGroup>
                             </Form>
                         </div>

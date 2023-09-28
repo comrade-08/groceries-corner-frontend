@@ -19,17 +19,18 @@ const Cart = () => {
                                     <tr className=''>
                                         <th className='th-td'>S.no</th>
                                         <th className='th-td'>Product</th>
-                                        <th className='th-td'>Amount</th>
+                                        <th className='th-td'>Rate</th>
                                         <th className='th-td'>Quantity</th>
-                                        <th className='th-td'>Paid Status</th>
+                                        <th className='th-td'>Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody className='table-body'>
                                     <tr className=''>
                                         <td className='tb-td'>01</td>
-                                        <td className='tb-td'>80-09-2001</td>
-                                        <td className='tb-td'>Rs: 2000/-</td>
-                                        <td className='tb-td'>Not Paid</td>
+                                        <td className='tb-td'>Soap</td>
+                                        <td className='tb-td'>200/-</td>
+                                        <td className='tb-td'>1</td>
+                                        <td className='tb-td'>200/-</td>
                                     </tr>
                                 </tbody>
                             </Table>

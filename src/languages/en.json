@@ -1,7 +1,8 @@
 {
-    "headerContent": "VIP's Garage",
-    "userRegisterHead": "User Register Page",
-    "userLoginHead": "User Login Page",
+    "headerContent": "GROCERIES CORNER",
+    "supportFooter": "supportgroceriescorner@gmail.com",
+    "userRegisterHead": "USER REGISTER PAGE",
+    "userLoginHead": "USER LOGIN PAGE",
     "adminRegisterHead": "Admin Register Page",
     "adminLoginHead": "Admin Login Page",
     "userNameLabel": "Username :",
@@ -23,7 +24,7 @@
     "sendBtn": "Send",
     "verifyBtn": "Verify",
     "cancelBtn": "Cancel",
-    "userForgotPasswordHead": "User Forgot Password Page",
+    "userForgotPasswordHead": "FORGOT YOUR PASSWORD",
     "smsLabel": "Send SMS",
     "userNameReq": "Username is required",
     "mobileNumberReq": "Mobile Number is required",
@@ -56,5 +57,7 @@
     "productLink": "Products",
     "productsHead": "Products",
     "cartHead": "Cart",
-    "orderBtn": "Order"
+    "orderBtn": "Order",
+    "cartLink": "Cart",
+    "ordersHistoryLink": "Orders History"
 }

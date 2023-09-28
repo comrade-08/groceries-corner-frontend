@@ -4,10 +4,12 @@ import translate from '../languages/translater'
 const commonHelpers = {
     showMsg(msg, type, lang) {
         const toastStyle = {
-            color: '#002244',
-            borderRadius: '8px',
-            fontSize: '18px',
-            fontWeight: 'bold'
+            color: '#4a4a4a',
+            borderRadius: '4px',
+            fontSize: '16px',
+            fontWeight: 600,
+            background: '#f6f6f6',
+            letterSpacing: '0.5px'
         }
         switch (type) {
             case 'error':
