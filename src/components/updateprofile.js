@@ -109,20 +109,18 @@ const Updateprofile = (props) => {
     return (
         <>
             <Modal size='lg' centered className='' show={props.isShowModal} animation onHide={() => addOrCloseModal()}>
-                <ModalHeader className='update-head py-4 d-flex text-center'>
-                    <div className='px-md-3'>
-                        {translate('updateHead', lang)}
-                    </div>
+                <ModalHeader className='py-4 d-flex justify-content-center register-head'>
+                    {translate('updateHead', lang)}
                 </ModalHeader>
                 <ModalBody className='update-pro-modal'>
                     <div className='container'>
-                        <Form className='register-form'>
-                            <div className='d-lg-flex'>
-                                <FormGroup className='mb-4 col p-lg-2'>
+                        <Form className=''>
+                            <div className='row'>
+                                <FormGroup className='mb-4 col-lg-6 p-lg-2'>
                                     <FormLabel className='input-label' htmlFor='userName'>{translate('userNameLabel', lang)}</FormLabel>
                                     <FormControl className='mt-1 input-text text-capitalize' id='userName' name='userName' type='text' value={updateDetails.userName} onChange={(e) => handleChange(e)} maxLength={10} autoComplete='false' />
                                 </FormGroup>
-                                <FormGroup className='mb-4 col p-lg-2'>
+                                <FormGroup className='mb-4 col-lg-6 p-lg-2'>
                                     <FormLabel className='input-label' htmlFor='mobileNumber'>{translate('mobileLabel', lang)}</FormLabel>
                                     <NumericFormat
                                         className='mt-1 input-text form-control disable-cursor'
@@ -137,27 +135,27 @@ const Updateprofile = (props) => {
                                     />
                                 </FormGroup>
                             </div>
-                            <div className='d-lg-flex'>
-                                <FormGroup className='mb-4 col p-lg-2'>
+                            <div className='row'>
+                                <FormGroup className='mb-4 col-lg-6 p-lg-2'>
                                     <FormLabel className='input-label' htmlFor='address'>{translate('addressLabel', lang)}</FormLabel>
                                     <FormControl className='mt-1 input-text' id='address' name='address' type='text' value={updateDetails.address} onChange={(e) => handleChange(e)} autoComplete='false' />
                                 </FormGroup>
-                                <FormGroup className='col p-lg-2'>
+                                <FormGroup className='col-lg-6 p-lg-2'>
                                     <FormLabel className='input-label' htmlFor='password'>{translate('passwordLabel', lang)}</FormLabel>
                                     <FormControl className='mt-1 input-text disable-cursor' id='password' name='password' type='password' value={updateDetails.password} onChange={(e) => handleChange(e)} maxLength={8} readOnly />
-                                    <div className='text-end my-3'>
-                                        <Button className='forgot-btn px-lg-4 px-2 rounded py-1' onClick={() => setIsChangePassword()}>{translate('changePasswordBtn', lang)}</Button>
+                                    <div className='row my-3'>
+                                        <Button className='forgot-btn text-end' onClick={() => setIsChangePassword()}>{translate('changePasswordBtn', lang)}</Button>
                                     </div>
                                 </FormGroup>
                             </div>
                             {
                                 updateDetails.isChangePassword && (
-                                    <div className='d-lg-flex change-password'>
-                                        <FormGroup className='col p-lg-2 mb-4 mb-lg-0'>
+                                    <div className='row change-password'>
+                                        <FormGroup className='col-lg-6 p-lg-2 mb-4 mb-lg-0'>
                                             <FormLabel className='input-label' htmlFor='oldPassword'>{translate('oldPasswordLabel', lang)}</FormLabel>
                                             <FormControl className='mt-1 input-text' id='oldPassword' name='oldPassword' type='text' value={updateDetails.oldPassword} onChange={(e) => handleChange(e)} maxLength={8} />
                                         </FormGroup>
-                                        <FormGroup className='col p-lg-2 mb-2'>
+                                        <FormGroup className='col-lg-6 p-lg-2 mb-2'>
                                             <FormLabel className='input-label' htmlFor='newPassword'>{translate('newPasswordLabel', lang)}</FormLabel>
                                             <FormControl className='mt-1 input-text' id='newPassword' name='newPassword' type='text' value={updateDetails.newPassword} onChange={(e) => handleChange(e)} maxLength={8} />
                                         </FormGroup>

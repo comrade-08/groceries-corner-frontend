@@ -22,39 +22,41 @@ const Profile = () => {
     }
 
     return (
-        <>
-            <Container>
-                <div className='my-5 rounded orders-parent'>
-                    <div className='p-4 orders-head text-center text-md-start'>
-                        {translate('profileHead')}
-                    </div>
-                    <div className='p-4 pro-grand-parent'>
-                        <ul className='list-unstyled text-center text-lg-start d-md-flex justify-content-between pro-parent'>
-                            <li className='pro-label col-md-5'>{translate('userNameLabel')}</li>
-                            <li className='pro-details col-md-6 text-capitalize'>{user.userName}</li>
-                        </ul>
-                        <ul className='list-unstyled text-center text-lg-start d-md-flex  justify-content-between pro-parent'>
-                            <li className='pro-label col-md-5'>{translate('mobileLabel')} </li>
-                            <li className='pro-details col-md-6'>{user.mobileNumber}</li>
-                        </ul>
-                        <ul className='list-unstyled text-center text-lg-start d-md-flex  justify-content-between pro-parent'>
-                            <li className='pro-label col-md-5'>{translate('addressLabel')} </li>
-                            <li className='pro-details col-md-6'>1233333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</li>
-                        </ul>
-                        <ul className='list-unstyled text-center text-lg-start d-md-flex  justify-content-between pro-parent'>
-                            <li className='pro-label col-md-5'>{translate('passwordLabel')} </li>
-                            <li className='pro-details col-md-6'>{user.password}</li>
-                        </ul>
-                        <div className='d-flex justify-content-end mt-4'>
-                            <Button className='btn-common col-lg-3' onClick={() => addOrCloseModal()}>{translate('updateBtn', lang)}</Button>
+        <div className='container my-5'>
+            <div className='row'>
+                <div className='col-lg-6 col-md-8 container'>
+                    <div className='rounded register-parent'>
+                        <div className='text-center register-head py-4'>
+                            {translate('profileHead', lang)}
+                        </div>
+                        <div className='p-md-4 p-3'>
+                            <ul className='list-unstyled d-sm-flex pro-parent'>
+                                <li className='pro-label col-sm-5'>{translate('userNameLabel')}</li>
+                                <li className='pro-details col-sm-6 text-capitalize'>{user.userName}</li>
+                            </ul>
+                            <ul className='list-unstyled d-sm-flex pro-parent'>
+                                <li className='pro-label col-sm-5'>{translate('mobileLabel')} </li>
+                                <li className='pro-details col-sm-6'>{user.mobileNumber}</li>
+                            </ul>
+                            <ul className='list-unstyled d-sm-flex pro-parent'>
+                                <li className='pro-label col-sm-5'>{translate('addressLabel')} </li>
+                                <li className='pro-details col-sm-6'>1233333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</li>
+                            </ul>
+                            <ul className='list-unstyled d-sm-flex pro-parent'>
+                                <li className='pro-label col-sm-5'>{translate('passwordLabel')} </li>
+                                <li className='pro-details col-sm-6'>{user.password}</li>
+                            </ul>
+                            <div className='d-flex justify-content-end mt-4'>
+                                <Button className='btn-common px-sm-5 px-3' onClick={() => addOrCloseModal()}>{translate('updateBtn', lang)}</Button>
+                            </div>
                         </div>
                     </div>
+                    <div>
+                        <Updateprofile isShowModal={isShowModal} addOrCloseModal={addOrCloseModal} />
+                    </div>
                 </div>
-                <div>
-                    <Updateprofile isShowModal={isShowModal} addOrCloseModal={addOrCloseModal} />
-                </div>
-            </Container>
-        </>
+            </div>
+        </div>
     )
 }
 
