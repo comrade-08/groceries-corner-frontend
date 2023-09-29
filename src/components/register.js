@@ -93,6 +93,7 @@ const Register = (props) => {
                     password: '',
                     confirmPassword: ''
                 })
+                props.setisLoginUser()
             })
         }
     }

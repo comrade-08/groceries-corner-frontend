@@ -14,8 +14,8 @@ const Router = (props) => {
     return (
         // <BrowserRouter>
         <Routes>
-            <Route path='/' exact element={<Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path='/' exact element={<Login setisLoginUser={props.setisLoginUser}/>} />
+            <Route path='/register' element={<Register setisLoginUser={props.setisLoginUser}/>} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/products' element={<Products />} />
             <Route path='/cart' element={<Cart />} />

@@ -41,7 +41,7 @@
     "userNameLetterErr": "Username can contain only letters",
     "isNotLoginUser": "User not found",
     "isLoginUser": "Login successfully",
-    "orderHistoryHead": "Orders History",
+    "orderHistoryHead": "ORDERS HISTORY",
     "profileHead": "PROFILE",
     "emptyString": "-----------------",
     "updateBtn": "Update",
@@ -56,8 +56,10 @@
     "profileLink": "Profile",
     "productLink": "Products",
     "productsHead": "Products",
-    "cartHead": "Cart",
+    "cartHead": "CART",
     "orderBtn": "Order",
     "cartLink": "Cart",
-    "ordersHistoryLink": "Orders History"
+    "ordersHistoryLink": "Orders History",
+    "placeOrderBtn": "Place Order",
+    "logOutLink": "Logout"
 }

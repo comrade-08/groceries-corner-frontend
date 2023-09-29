@@ -24,7 +24,7 @@ const Profile = () => {
     return (
         <div className='container my-5'>
             <div className='row'>
-                <div className='col-lg-6 col-md-8 container'>
+                <div className='col-lg-10 col-md-12 container'>
                     <div className='rounded register-parent'>
                         <div className='text-center register-head py-4'>
                             {translate('profileHead', lang)}

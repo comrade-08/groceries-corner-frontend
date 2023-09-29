@@ -20,7 +20,7 @@ const Login = (props) => {
     useEffect(() => {
         dispatch(getUsers())
         if (session.isLoginUser()) {
-            navigate('/dashboard/products')
+            navigate('/products')
         }
         // eslint-disable-next-line
     }, [dispatch])
@@ -62,7 +62,8 @@ const Login = (props) => {
                     commonHelpers.showMsg(translate('isLoginUser'), 'success')
                     session.setisLoginUser(isHaveAccount[0]).then(() => {
                         setTimeout(() => {
-                            navigate('/dashboard/products')
+                            navigate('/products')
+                            props.setisLoginUser()
                         }, 1000)
                     }).catch(() => {
                         session.clearUnneccessaryData()
