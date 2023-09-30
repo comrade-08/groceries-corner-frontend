@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { getUsers } from '../redux/userReducer'
 import session from '../helpers/session'
 import commonHelpers from '../helpers/CommonHelper'
+import NodataFound from './NodataFound'
 
 const Cart = () => {
   const { lang } = useSelector((state) => state.userReducer)
@@ -46,37 +47,47 @@ const Cart = () => {
               {translate('cartHead')}
             </div>
             <div className='p-md-4 p-3'>
-              <div className='table-parent table-responsive'>
-                <Table className='text-center p-4 table-child'>
-                  <thead className=''>
-                    <tr className=''>
-                      <th>S.no</th>
-                      <th>Product</th>
-                      <th>Rate</th>
-                      <th>Quantity</th>
-                      <th>Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody className='table-body'>
-                    {
-                      user.incompleteOrders.map((item, i) => {
-                        return (
+              {
+                user.incompleteOrders && user.incompleteOrders.length > 0 ? (
+                  <>
+                    <div className='table-parent table-responsive'>
+                      <Table className='text-center p-4 table-child'>
+                        <thead className=''>
                           <tr className=''>
-                            <td>{i + 1}</td>
-                            <td>{item.product}</td>
-                            <td>{item.rate}</td>
-                            <td>{item.quantity}</td>
-                            <td>{commonHelpers.multiply([item.rate, item.quantity])}</td>
+                            <th>S.no</th>
+                            <th>Product</th>
+                            <th>Rate</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
                           </tr>
-                        )
-                      })
-                    }
-                  </tbody>
-                </Table>
-              </div>
-              <div className='d-flex justify-content-end mt-4'>
-                <Button className='btn-common px-sm-5 px-3'>{translate('placeOrderBtn', lang)}</Button>
-              </div>
+                        </thead>
+                        <tbody className='table-body'>
+                          {
+                            user.incompleteOrders.map((item, i) => {
+                              return (
+                                <tr className=''>
+                                  <td>{i + 1}</td>
+                                  <td>{item.product}</td>
+                                  <td>{item.rate}</td>
+                                  <td>{item.quantity}</td>
+                                  <td>{commonHelpers.multiply([item.rate, item.quantity])}</td>
+                                </tr>
+                              )
+                            })
+                          }
+                        </tbody>
+                      </Table>
+                    </div>
+                    <div className='d-flex justify-content-end mt-4'>
+                      <Button className='btn-common px-sm-5 px-3'>{translate('placeOrderBtn', lang)}</Button>
+                    </div>
+                  </>
+                ) : (
+                  <div className='text-center'>
+                    <NodataFound />
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>

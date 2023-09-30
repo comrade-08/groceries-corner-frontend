@@ -9,6 +9,7 @@ import ProductsDashboard from './ProductsDashboard'
 import Profile from './profile'
 import Cart from './Cart'
 import OrdersHistory from './ordersHistory'
+import Page404 from './Page404'
 
 const Router = (props) => {
     return (
@@ -23,6 +24,7 @@ const Router = (props) => {
             <Route path='/forgot' element={<ForgotPassword />} />
             <Route path='/dashboard/profile' element={<DashBoard />} />
             <Route path='/dashboard/products' element={<ProductsDashboard />} />
+            <Route path="*" element={<Page404 />} />
         </Routes>
         // </BrowserRouter>
     )

@@ -8,6 +8,7 @@ import { Rating } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../redux/productReducer'
 import { Carousel } from 'react-responsive-carousel'
+import NodataFound from './NodataFound'
 
 const Products = () => {
   const { productsData } = useSelector((state) => state.productReducer)
@@ -21,7 +22,7 @@ const Products = () => {
       navigate('/')
     } else {
       dispatch(getProducts())
-      setProducts(productsData)
+      // setProducts(productsData)
       console.log(productsData)
     }
     // eslint-disable-next-line
@@ -43,58 +44,69 @@ const Products = () => {
               {translate('productsHead')}
             </div>
             <div className='p-md-4 p-3'>
-              <div className='mb-3'>
-                <FormControl type="text" id='search' className='search' placeholder="Search Products" aria-label="Search Products" aria-describedby="search" />
-              </div>
-              <div>
-                <Row className=''>
-                  {
-                    productsData.map((item, i) => {
-                      return (
-                        <div className='col-12 col-sm-6 col-md-4 col-xl-3 mb-3' key={i}>
-                          <div className='m-1 border rounded'>
-                            <div className='p-1 pb-0 image-carousel'>
-                              <Carousel showThumbs={false} infiniteLoop autoPlay className='image-carousel' showStatus={false}>
-                                {
-                                  item.images.map((image, i) => {
-                                    return (
-                                      <div className=''>
-                                        <Image src={image} className='rounded' onError={(e) => fallBackImage(e)} />
-                                      </div>
-                                    )
-                                  })
-                                }
-                              </Carousel>
-                            </div>
-                            <div className='single-desc-parent text-center p-2'>
-                              <div className='d-md-flex justify-content-between'>
-                                <p className=''><i className="bi bi-currency-rupee"></i>{item.rate}</p>
-                                <Rating
-                                  key={i}
-                                  size='small'
-                                  name="simple-controlled"
-                                  value={rating}
-                                  onChange={(e, value) => {
-                                    setRating(value)
-                                  }}
-                                />
+              {
+                products && products.length > 0 ? (
+                  <>
+                    <div className='mb-3'>
+                      <FormControl type="text" id='search' className='search' placeholder="Search Products" aria-label="Search Products" aria-describedby="search" />
+                    </div>
+                    <div className='container'>
+                      <Row className=''>
+                        {
+                          productsData.map((item, i) => {
+                            return (
+                              <div className='col-12 col-sm-6 col-md-4 col-xl-3 mb-3' key={i}>
+                                <div className='m-1 border rounded'>
+                                  <div className='p-1 pb-0 image-carousel'>
+                                    <Carousel showThumbs={false} infiniteLoop autoPlay className='image-carousel' showStatus={false}>
+                                      {
+                                        item.images.map((image, i) => {
+                                          return (
+                                            <div className=''>
+                                              <Image src={image} className='rounded' onError={(e) => fallBackImage(e)} />
+                                            </div>
+                                          )
+                                        })
+                                      }
+                                    </Carousel>
+                                  </div>
+                                  <div className='single-desc-parent text-center p-2'>
+                                    <div className='d-md-flex justify-content-between'>
+                                      <p className=''><i className="bi bi-currency-rupee"></i>{item.rate}</p>
+                                      <Rating
+                                        key={i}
+                                        size='small'
+                                        name="simple-controlled"
+                                        value={rating}
+                                        onChange={(e, value) => {
+                                          setRating(value)
+                                        }}
+                                      />
 
+                                    </div>
+                                    <div>
+                                      <p className='product-name'>{item.name}</p>
+                                      <p className='product-description'>{item.description}</p>
+                                    </div>
+                                    <div className='text-md-end p-2'>
+                                      <Button className='btn-common rounded-md-pill px-3'>Add to Cart</Button>
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
-                              <div>
-                                <p className='product-name'>{item.name}</p>
-                                <p className='product-description'>{item.description}</p>
-                              </div>
-                              <div className='text-md-end p-2'>
-                                <Button className='btn-common rounded-md-pill px-3'>Add to Cart</Button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    })
-                  }
-                </Row>
-              </div>
+                            )
+                          })
+                        }
+                      </Row>
+                    </div>
+                  </>
+                ) : (
+                  <div className='text-center no-data-products rounded'>
+                    <NodataFound />
+                  </div>
+                )
+
+              }
             </div>
           </div>
         </div>

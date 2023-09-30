@@ -69,7 +69,7 @@ const NavBar = (props) => {
   return (
     <Navbar className='navbar-parent' expand="lg">
       <Container fluid>
-        <Link className='navbar-brand px-3 py-3' to='/profile'>{translate('headerContent', lang)}</Link>
+        <Link className='navbar-brand px-3 py-3' to='/profile' onClick={() => handleNavLinkStyle('profile')}>{translate('headerContent', lang)}</Link>
         <Navbar.Toggle className='toggle-btn' aria-controls="togglebtn" />
         <Navbar.Collapse id="togglebtn">
           <Nav className="">

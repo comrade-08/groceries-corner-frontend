@@ -55,11 +55,13 @@
     "updatePasswordNotSame": "Old Password is wrong",
     "profileLink": "Profile",
     "productLink": "Products",
-    "productsHead": "Products",
+    "productsHead": "PRODUCTS",
     "cartHead": "CART",
     "orderBtn": "Order",
     "cartLink": "Cart",
     "ordersHistoryLink": "Orders History",
     "placeOrderBtn": "Place Order",
-    "logOutLink": "Logout"
+    "logOutLink": "Logout",
+    "noDataFound": "No Data Found",
+    "pageNotFound": "Page Not Found"
 }
