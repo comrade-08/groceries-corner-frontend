@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { usersBackendURL } from '../config/config'
 import commonHelpers from '../helpers/CommonHelper'
 import translate from '../languages/translater'
+import session from '../helpers/session'
 
 const initialState = {
     forgotDetails: {
@@ -69,10 +70,8 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setisLogin: (state, action) => {
-            state.activeUser.userName = action.payload.userName
-            state.activeUser.mobileNumber = action.payload.mobileNumber
-            state.activeUser.address = action.payload.address
-            state.activeUser.password = action.payload.password
+            state.activeUser = action.payload
+            session.setisLoginUser(JSON.stringify(action.payload))
         },
 
         forgotUser: (state, action) => {

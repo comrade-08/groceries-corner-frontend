@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './stylesheets/style.css'
 import 'react-toastify/dist/ReactToastify.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import App from './App'
 import { Provider } from 'react-redux'
 import { store } from "./redux/store";
