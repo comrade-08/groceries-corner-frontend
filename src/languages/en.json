@@ -1,10 +1,10 @@
 {
     "headerContent": "GROCERIES CORNER",
     "supportFooter": "supportgroceriescorner@gmail.com",
-    "userRegisterHead": "USER REGISTER PAGE",
-    "userLoginHead": "USER LOGIN PAGE",
+    "userRegisterHead": "USER REGISTER",
+    "userLoginHead": "USER LOGIN",
     "adminRegisterHead": "Admin Register Page",
-    "adminLoginHead": "Admin Login Page",
+    "adminLoginHead": "ADMIN LOGIN",
     "userNameLabel": "Username :",
     "mobileLabel": "Mobile Number :",
     "passwordLabel": "Password :",
@@ -63,5 +63,9 @@
     "placeOrderBtn": "Place Order",
     "logOutLink": "Logout",
     "noDataFound": "No Data Found",
-    "pageNotFound": "Page Not Found"
+    "pageNotFound": "Page Not Found",
+    "stocksLink": "Stocks",
+    "usersLink": "Users",
+    "stocksHead": "STOCKS",
+    "addProductBtn": "Add Product"
 }

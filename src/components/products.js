@@ -14,7 +14,7 @@ const Products = () => {
   const { productsData } = useSelector((state) => state.productReducer)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [products, setProducts] = useState([])
+  // const [products, setProducts] = useState([])
   const [rating, setRating] = useState(0)
 
   useEffect(() => {
@@ -34,9 +34,6 @@ const Products = () => {
 
   return (
     <div className='container my-5'>
-      {
-        console.log(productsData, 'productsData')
-      }
       <div className='row'>
         <div className='col-lg-10 col-md-12 container'>
           <div className='rounded register-parent'>
@@ -45,7 +42,7 @@ const Products = () => {
             </div>
             <div className='p-md-4 p-3'>
               {
-                products && products.length > 0 ? (
+                productsData && productsData.length > 0 ? (
                   <>
                     <div className='mb-3'>
                       <FormControl type="text" id='search' className='search' placeholder="Search Products" aria-label="Search Products" aria-describedby="search" />
@@ -72,7 +69,7 @@ const Products = () => {
                                   </div>
                                   <div className='single-desc-parent text-center p-2'>
                                     <div className='d-md-flex justify-content-between'>
-                                      <p className=''><i className="bi bi-currency-rupee"></i>{item.rate}</p>
+                                      <p className=''><i className="bi bi-currency-rupee"></i>{item.price}</p>
                                       <Rating
                                         key={i}
                                         size='small'
