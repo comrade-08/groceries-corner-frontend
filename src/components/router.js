@@ -18,8 +18,8 @@ const Router = (props) => {
   return (
     // <BrowserRouter>
     <Routes>
-      <Route path='/' exact element={<Login setisLoginUser={props.setisLoginUser} />} />
-      <Route path='/register' element={<Register setisLoginUser={props.setisLoginUser} />} />
+      <Route path='/' exact element={<Login setIsLoginUser={props.setIsLoginUser} />} />
+      <Route path='/register' element={<Register setIsLoginUser={props.setIsLoginUser} />} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/products' element={<Products />} />
       <Route path='/cart' element={<Cart />} />
@@ -27,7 +27,7 @@ const Router = (props) => {
       <Route path='/forgot' element={<ForgotPassword />} />
       <Route path='/dashboard/profile' element={<DashBoard />} />
       <Route path='/dashboard/products' element={<ProductsDashboard />} />
-      <Route path='/admin/login' element={<AdminLogin setisLoginUser={props.setisLoginUser} />} />
+      <Route path='/admin/login' element={<AdminLogin setIsLoginUser={props.setIsLoginUser} />} />
       <Route path='/admin/stocks' element={<Stocks />} />
       <Route path='/admin/users' element={<Users />} />
       <Route path="*" element={<Page404 />} />

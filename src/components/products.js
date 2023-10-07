@@ -21,9 +21,12 @@ const Products = () => {
     if (!session.isLoginUser()) {
       navigate('/')
     } else {
-      dispatch(getProducts())
+      session.getUserData().then((userData) => {
+        const user = JSON.parse(userData)
+        dispatch(getProducts(user))
+      })
       // setProducts(productsData)
-      console.log(productsData)
+      // console.log(productsData)
     }
     // eslint-disable-next-line
   }, [])

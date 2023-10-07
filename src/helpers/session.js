@@ -1,14 +1,6 @@
 const session = {
 
-    setisLoginUser(data) {
-        // const userData = {
-        //     address: data.address,
-        //     confirmPassword: data.confirmPassword,
-        //     id: data.id,
-        //     mobileNumber: data.mobileNumber,
-        //     password: data.password,
-        //     userName: data.userName,
-        // }
+    setIsLoginUser(data) {
         localStorage.clear()
         localStorage.setItem('userData', JSON.stringify(data))
         localStorage.setItem('isLoginUser', true)

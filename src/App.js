@@ -15,15 +15,15 @@ function App() {
     // eslint-disable-next-line
   }, [])
 
-  const setisLoginUser = () => {
+  const setIsLoginUser = () => {
     setIsLogin(session.isLoginUser())
   }
 
   return (
     <BrowserRouter>
       <div className="app">
-        {isLoginUser ? (<NavBar setisLoginUser={setisLoginUser}/>) : (<Header />)}
-        <Router setisLoginUser={setisLoginUser}/>
+        {isLoginUser ? (<NavBar setIsLoginUser={setIsLoginUser}/>) : (<Header />)}
+        <Router setIsLoginUser={setIsLoginUser}/>
         <ToastContainer />
       </div>
       {/* {!isLoginUser && (<Footer />)} */}

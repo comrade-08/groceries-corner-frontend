@@ -18,6 +18,7 @@ const Register = (props) => {
     mobileNumber: '',
     email: '',
     address: '',
+    profile: '',
     password: '',
     confirmPassword: ''
   }
@@ -81,7 +82,7 @@ const Register = (props) => {
   }
 
   const handleSubmit = async (e) => {
-    const { userName, mobileNumber, address, password, email } = registerDetails
+    const { userName, mobileNumber, address, password, email, profile } = registerDetails
     e.preventDefault()
     if (isValidInput()) {
       // const salt = 10
@@ -91,7 +92,8 @@ const Register = (props) => {
         mobileNumber: mobileNumber,
         address: address,
         password: password,
-        email: email
+        email: email,
+        profile: profile
       }
       dispatch(registerUser(data)).then(() => {
         setregisterDetails({
@@ -102,7 +104,7 @@ const Register = (props) => {
           confirmPassword: '',
           email: ''
         })
-        props.setisLoginUser()
+        props.setIsLoginUser()
       })
     }
   }

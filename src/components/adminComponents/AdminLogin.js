@@ -60,10 +60,10 @@ const AdminLogin = (props) => {
                 if (isHaveAccount.length > 0) {
                     dispatch(setisLogin(isHaveAccount[0]))
                     commonHelpers.showMsg(translate('isLoginUser'), 'success')
-                    session.setisLoginUser(isHaveAccount[0]).then(() => {
+                    session.setIsLoginUser(isHaveAccount[0]).then(() => {
                         setTimeout(() => {
                             navigate('/admin/stocks')
-                            props.setisLoginUser()
+                            props.setIsLoginUser()
                         }, 1000)
                     }).catch(() => {
                         session.clearUnneccessaryData()

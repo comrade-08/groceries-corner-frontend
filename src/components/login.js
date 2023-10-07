@@ -3,13 +3,13 @@ import { Button, Form, FormControl, FormGroup, FormLabel } from 'react-bootstrap
 import translate from '../languages/translater'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUsers, loginUser, setisLogin } from '../redux/userReducer'
+import { loginUser } from '../redux/userReducer'
 import { NumericFormat } from 'react-number-format'
 import commonHelpers from '../helpers/CommonHelper'
 import session from '../helpers/session'
 
 const Login = (props) => {
-    const { lang, users } = useSelector((state) => state.userReducer)
+    const { lang } = useSelector((state) => state.userReducer)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const initialState = {
@@ -18,7 +18,6 @@ const Login = (props) => {
     }
 
     useEffect(() => {
-        dispatch(getUsers())
         if (session.isLoginUser()) {
             navigate('/products')
         }
@@ -54,25 +53,7 @@ const Login = (props) => {
         e.preventDefault()
         if (isValidInput()) {
             dispatch(loginUser(loginDetails)).then(() => {
-                const isHaveAccount = users.filter((user, idx) => {
-                    return user.mobileNumber === loginDetails.mobileNumber && user.password === loginDetails.password
-                })
-                if (isHaveAccount.length > 0) {
-                    dispatch(setisLogin(isHaveAccount[0]))
-                    commonHelpers.showMsg(translate('isLoginUser'), 'success')
-                    session.setisLoginUser(isHaveAccount[0]).then(() => {
-                        setTimeout(() => {
-                            navigate('/products')
-                            props.setisLoginUser()
-                        }, 1000)
-                    }).catch(() => {
-                        session.clearUnneccessaryData()
-                        commonHelpers.showMsg(translate('somethingWrong'), 'error')
-                    })
-                } else {
-                    session.clearUnneccessaryData()
-                    commonHelpers.showMsg(translate('isNotLoginUser'), 'error')
-                }
+              navigate('/products')
             })
         }
     }

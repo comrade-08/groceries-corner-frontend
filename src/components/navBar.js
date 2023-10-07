@@ -60,7 +60,7 @@ const NavBar = (props) => {
         type = ''
         break;
     }
-    console.log(type, 'type')
+    // console.log(type, 'type')
     handleNavLinkStyle(type)
     // eslint-disable-next-line
   }, [])
@@ -105,7 +105,7 @@ const NavBar = (props) => {
   const handleLogOut = () => {
     const result = session.clearUnneccessaryData()
     if (result) {
-      props.setisLoginUser()
+      props.setIsLoginUser()
       navigate('/')
     }
   }
