@@ -42,6 +42,12 @@ const commonHelpers = {
     return result
   },
 
+  checkIsEmail(input) {
+    const regEx = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
+    const result = regEx.test(input)
+    return result
+  },
+
   sum(array) {
     let result = 0
     if (array && array.length > 0) {

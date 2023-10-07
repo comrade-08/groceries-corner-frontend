@@ -38,6 +38,7 @@
     "passwordNotSame": "Passwords does not match",
     "existUser": "Mobile Number already have an account",
     "registerSuccess": "Registered successfully",
+    "registerFailed": "Registeration Failed",
     "userNameLetterErr": "Username can contain only letters",
     "isNotLoginUser": "User not found",
     "isLoginUser": "Login successfully",
@@ -67,5 +68,8 @@
     "stocksLink": "Stocks",
     "usersLink": "Users",
     "stocksHead": "STOCKS",
-    "addProductBtn": "Add Product"
+    "addProductBtn": "Add Product",
+    "emailReq": "Email is required",
+    "emailLabel": "Email :",
+    "emailErr": "Invalid Email"
 }

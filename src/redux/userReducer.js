@@ -28,7 +28,7 @@ const initialState = {
 
 // getUsers
 export const getUsers = createAsyncThunk('users/getUsers', async (_, rejectWithValue) => {
-    const response = await fetch(usersBackendURL)
+    const response = await fetch(usersBackendURL + 'get-users')
     if (response.ok) {
         const jsonResponse = response.json()
         return jsonResponse
@@ -46,7 +46,7 @@ export const registerUser = createAsyncThunk('users/registerUser', async (user, 
             "Content-type": "application/json; charset=UTF-8"
         }
     }
-    const response = await fetch(usersBackendURL, options)
+    const response = await fetch(usersBackendURL + 'register', options)
     if (response.ok) {
         const jsonResponse = response.json()
         return jsonResponse
@@ -56,7 +56,7 @@ export const registerUser = createAsyncThunk('users/registerUser', async (user, 
 })
 
 export const loginUser = createAsyncThunk('users/loginUser', async (user, rejectWithValue) => {
-    const response = await fetch(usersBackendURL)
+    const response = await fetch(usersBackendURL + 'login')
     if (response.ok) {
         const jsonResponse = response.json()
         return jsonResponse
@@ -91,11 +91,12 @@ const userSlice = createSlice({
             .addCase(getUsers.fulfilled, (state, action) => {
                 state.userListLoader = false
                 state.userListError = ''
-                state.users = action.payload
+                state.users = action.payload.response
+                console.log(action.payload.response)
             })
             .addCase(getUsers.rejected, (state, action) => {
                 state.userListLoader = false
-                state.userListError = action.payload
+                state.userListError = action.payload.response
             })
             .addCase(registerUser.pending, (state) => {
                 state.registerLoader = true
@@ -103,12 +104,13 @@ const userSlice = createSlice({
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.registerLoader = false
                 state.registerError = ''
-                state.users.push(action.payload)
+                state.users.push(action.payload.response)
                 commonHelpers.showMsg(translate('registerSuccess'), 'success')
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.registerLoader = false
-                state.registerError = action.payload
+                state.registerError = action.payload.response
+                commonHelpers.showMsg(action.payload.response, 'error')
             })
             .addCase(loginUser.pending, (state) => {
                 state.registerLoader = true
