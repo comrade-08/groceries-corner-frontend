@@ -44,6 +44,7 @@
     "loginSuccess": "Login successfully",
     "orderHistoryHead": "ORDERS HISTORY",
     "profileHead": "PROFILE",
+    "usersHead": "USERS",
     "emptyString": "-----------------",
     "updateBtn": "Update",
     "printBtn": "Print",

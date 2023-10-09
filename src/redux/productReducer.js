@@ -1,10 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { productsBackendURL } from "../config/config"
 import commonHelpers from "../helpers/CommonHelper"
+import translate from "../languages/translater"
 
 const initialState = {
-  productsLoader: false,
-  productsData: []
+  productListLoader: false,
+  productListError: '',
+  products: []
 }
 
 export const getProducts = createAsyncThunk('product/getProducts', async (user, rejectWithValue) => {
@@ -30,19 +32,22 @@ const productSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state) => {
-        state.productsLoader = true
+        state.productListLoader = true
       })
       .addCase(getProducts.fulfilled, (state, action) => {
-        state.productsLoader = false
-        state.userListError = ''
-        state.productsData = action.payload.response
-        commonHelpers.showMsg('Products Retrieved', 'success')
+        state.productListLoader = false
+        if (action.payload.status) {
+          state.products = action.payload.response
+          commonHelpers.showMsg('Products Retrieved', 'success')
+        } else {
+          state.productListError = action.payload.response
+          commonHelpers.showMsg(action.payload.response, 'error')
+        }
       })
       .addCase(getProducts.rejected, (state, action) => {
-        state.productsLoader = false
-        state.userListError = action.payload
-        console.log(action.payload)
-        commonHelpers.showMsg(action.payload, 'error')
+        state.productListLoader = false
+        state.productListError = translate('somethingWrong', state.lang)
+        commonHelpers.showMsg(translate('somethingWrong', state.lang), 'error')
       })
   }
 })

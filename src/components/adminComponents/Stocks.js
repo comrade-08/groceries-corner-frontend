@@ -38,7 +38,11 @@ const Stocks = () => {
         }
       })
     } else {
-      dispatch(getProducts())
+      session.getUserData().then((userData) => {
+        const user = JSON.parse(userData)
+        console.log(user)
+        dispatch(getProducts(user))
+      })
     }
     // eslint-disable-next-line
   }, [])
@@ -52,6 +56,9 @@ const Stocks = () => {
               {translate('stocksHead')}
             </div>
             <div className='p-md-4 p-3'>
+              <div className='text-md-end p-2'>
+                <Button className='btn-common rounded-md-pill px-3'>Add Stock</Button>
+              </div>
               {
                 productsData && productsData.length > 0 ? (
                   <>

@@ -97,41 +97,54 @@ const userSlice = createSlice({
       })
       .addCase(getUsers.fulfilled, (state, action) => {
         state.userListLoader = false
-        state.userListError = ''
-        state.users = action.payload.response
-        console.log(action.payload.response)
+        if (action.payload.status) {
+          state.users = action.payload.response
+          console.log(action.payload.response)
+        } else {
+          state.userListError = action.payload.response
+          commonHelpers.showMsg(action.payload.response, 'error')
+        }
       })
       .addCase(getUsers.rejected, (state, action) => {
         state.userListLoader = false
-        state.userListError = action.payload.response
+        state.userListError = translate('somethingWrong', state.lang)
+        commonHelpers.showMsg(translate('somethingWrong', state.lang), 'error')
       })
       .addCase(registerUser.pending, (state) => {
         state.registerLoader = true
       })
       .addCase(registerUser.fulfilled, (state, action) => {
         state.registerLoader = false
-        state.registerError = ''
-        state.users.push(action.payload.response)
-        commonHelpers.showMsg(translate('registerSuccess'), 'success')
+        if (action.payload.status) {
+          state.users.push(action.payload.response)
+          commonHelpers.showMsg(translate('registerSuccess', state.lang), 'success')
+        } else {
+          state.registerError = action.payload.response
+          commonHelpers.showMsg(action.payload.response, 'error')
+        }
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.registerLoader = false
-        state.registerError = action.payload.response
-        commonHelpers.showMsg(action.payload.response, 'error')
+        state.registerError = translate('somethingWrong', state.lang)
+        commonHelpers.showMsg(translate('somethingWrong', state.lang), 'error')
       })
       .addCase(loginUser.pending, (state) => {
-        state.registerLoader = true
+        state.loginLoader = true
       })
       .addCase(loginUser.fulfilled, (state, action) => {
-        state.registerLoader = false
-        state.registerError = ''
-        session.setIsLoginUser(action.payload)
-        commonHelpers.showMsg(translate('loginSuccess', state.lang), 'success')
+        state.loginLoader = false
+        if (action.payload.status) {
+          session.setIsLoginUser(action.payload)
+          commonHelpers.showMsg(translate('loginSuccess', state.lang), 'success')
+        } else {
+          state.loginError = action.payload.response
+          commonHelpers.showMsg(action.payload.response, 'error')
+        }
       })
       .addCase(loginUser.rejected, (state, action) => {
-        state.registerLoader = false
-        state.registerError = action.payload
-        commonHelpers.showMsg(action.payload.response, 'error')
+        state.loginLoader = false
+        state.loginError = translate('somethingWrong', state.lang)
+        commonHelpers.showMsg(translate('somethingWrong', state.lang), 'error')
       })
   }
 })

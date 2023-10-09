@@ -16,6 +16,7 @@ const Products = () => {
   const dispatch = useDispatch()
   // const [products, setProducts] = useState([])
   const [rating, setRating] = useState(0)
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     if (!session.isLoginUser()) {
@@ -23,10 +24,12 @@ const Products = () => {
     } else {
       session.getUserData().then((userData) => {
         const user = JSON.parse(userData)
-        dispatch(getProducts(user))
+        dispatch(getProducts(user)).then(res => {
+          if (res.payload.status) {
+            setProducts(res.payload.response)
+          }
+        })
       })
-      // setProducts(productsData)
-      // console.log(productsData)
     }
     // eslint-disable-next-line
   }, [])
