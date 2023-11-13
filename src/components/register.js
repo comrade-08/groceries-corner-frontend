@@ -10,7 +10,7 @@ import { NumericFormat } from 'react-number-format'
 // import bcrypt from "bcrypt"
 
 const Register = (props) => {
-  const { lang, registerLoader, users } = useSelector((state) => state.userReducer)
+  const { lang, registerLoader } = useSelector((state) => state.userReducer)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const initialState = {
@@ -24,9 +24,15 @@ const Register = (props) => {
   }
 
   useEffect(() => {
-    dispatch(getUsers())
+    dispatch(getUsers()).then(res => {
+      if (res.payload && res.payload.status) {
+        setUsers(res.payload.response)
+      }
+    })
   }, [dispatch])
+
   const [registerDetails, setregisterDetails] = useState(initialState)
+  const [users, setUsers] = useState([])
 
   const handleChange = (e) => {
     const { name, value } = e.target

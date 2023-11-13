@@ -22,11 +22,19 @@ const Profile = () => {
     wishList: [],
   }
 
+  const loginInitialState = {
+    mobileNumber: '', 
+    password: ''
+  }
+
   const [user, setUser] = useState(initialState)
+  const [loginDetails, setLoginDetails] = useState()
 
   useEffect(() => {
-    session.getUserData().then((user) => {
-      setUser(JSON.parse(user))
+    session.getUserData().then((data) => {
+      const parsedData = JSON.parse(data)
+      console.log(parsedData.response);
+      setUser(parsedData.response)
     })
     // eslint-disable-next-line
   }, [])
@@ -45,7 +53,7 @@ const Profile = () => {
             </div>
             <div className='p-md-4 p-3'>
               {
-                user && user.id && user.userName && user.mobileNumber && user.password ? (
+                user && user._id ? (
                   <>
                     <ul className='list-unstyled d-sm-flex pro-parent'>
                       <li className='pro-label col-sm-5'>{translate('userNameLabel')}</li>
@@ -56,8 +64,12 @@ const Profile = () => {
                       <li className='pro-details col-sm-6'>{user.mobileNumber}</li>
                     </ul>
                     <ul className='list-unstyled d-sm-flex pro-parent'>
+                      <li className='pro-label col-sm-5'>{translate('emailLabel')} </li>
+                      <li className='pro-details col-sm-6'>{user.email}</li>
+                    </ul>
+                    <ul className='list-unstyled d-sm-flex pro-parent'>
                       <li className='pro-label col-sm-5'>{translate('addressLabel')} </li>
-                      <li className='pro-details col-sm-6'>1233333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333</li>
+                      <li className='pro-details col-sm-6'>{user.address}</li>
                     </ul>
                     <ul className='list-unstyled d-sm-flex pro-parent'>
                       <li className='pro-label col-sm-5'>{translate('passwordLabel')} </li>

@@ -39,7 +39,7 @@ const Users = () => {
       })
     } else {
       dispatch(getUsers()).then(res => {
-        if (res.payload.status) {
+        if (res.payload && res.payload.status) {
           setUsers(res.payload.response)
         }
       })
